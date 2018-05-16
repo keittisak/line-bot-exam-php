@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			$text = json_encode($events);
+			$text = 'สวัสดีผม chat bot';
 
 			// Build message to reply back
 			$messages = [
