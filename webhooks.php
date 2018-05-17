@@ -59,7 +59,7 @@ if (!is_null($events['events'])) {
 	}
 }
 
-$this->groupBtl('xxx');
+groupBtl('xxx');
 
 function groupBtl($event)
 {
