@@ -69,7 +69,7 @@ function groupBtl($event)
 
     $messages = [
         'type' => 'text',
-        'text' => 'XXX'.$text.' = '.$checkName;
+        'text' => 'XXX'.$text.' = '.$checkName
     ];
 
     if($checkName)
