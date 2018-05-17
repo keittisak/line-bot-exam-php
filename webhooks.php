@@ -38,11 +38,7 @@ if (!is_null($events['events'])) {
 			{
                 exit();
                 
-                
-			}else{
-                $res = groupBtl($events);
-                $post = json_encode($res);
-            }
+			}
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -58,20 +54,6 @@ if (!is_null($events['events'])) {
 	}
 }
 
-
-
-function groupBtlGetUser ($userId)
-{
-    $user = [
-        'U40842034a9108a52263b5037fd4a5cef' => [
-            'name' => 'เต',
-            'userId' => 'U40842034a9108a52263b5037fd4a5cef',
-            'walcome' => 'สวัสดีครับ'
-        ]
-    ];
-
-    return $user[$userId];
-}
 
 
 
