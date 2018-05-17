@@ -69,7 +69,7 @@ function groupBtl($event)
 
     $messages = [
         'type' => 'text',
-        'text' => 'XXX'.json_encode($event)
+        'text' => 'XXX'.$text
     ];
 
     if($checkName)
