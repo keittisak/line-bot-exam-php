@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
                 exit();
             }
 
-            $resultMsg = groupBtl($events);
+            $resultMsg = groupBtl($event);
             $data['messages'] = $resultMsg;
 
 
