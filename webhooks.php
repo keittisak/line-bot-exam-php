@@ -72,7 +72,7 @@ function groupBtl($event)
             'text' => 'นี้คือข้อมูล \r\n'.json_encode($event)
         ];
 
-        return $messages;
+        return [$messages];
     }
 }
 
