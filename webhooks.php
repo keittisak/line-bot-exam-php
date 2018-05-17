@@ -37,9 +37,14 @@ if (!is_null($events['events'])) {
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
                 exit();
-                
-			}
+            }
 
+            $resultMsg = groupBtl($events);
+            $data['messages'] = $resultMsg;
+
+
+            
+            $post = json_encode($data);
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -54,6 +59,35 @@ if (!is_null($events['events'])) {
 	}
 }
 
+function groupBtl($event)
+{
+    $userId = $event['source']['userId'];
+    $text = $event['message']['text'];
+
+    $checkName = stripos($text, "ชื่อ");
+    if($checkName)
+    {
+        $messages = [
+            'type' => 'text',
+            'text' => 'นี้คือข้อมูล \r\n'.json_encode($event)
+        ];
+
+        return $messages;
+    }
+}
+
+function groupBtlGetUser ($userId)
+{
+    $user = [
+        'U40842034a9108a52263b5037fd4a5cef' => [
+            'name' => 'เต',
+            'userId' => 'U40842034a9108a52263b5037fd4a5cef',
+            'walcome' => 'สวัสดีครับ'
+        ]
+    ];
+
+    return $user[$userId];
+}
 
 
 
