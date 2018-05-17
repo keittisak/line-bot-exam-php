@@ -66,11 +66,13 @@ function groupBtl($event)
     $text = $event['message']['text'];
 
     $messages['type'] = 'text';
-    
+
     $checkName = stripos($text, "ชื่อ");
     if($checkName)
     {
         $messages['text'] = 'นี้คือข้อมูล \r\n'.json_encode($event);
+    }else{
+        $messages['text'] = $text;
     }
 
     return [$messages];
