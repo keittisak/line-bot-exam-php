@@ -59,21 +59,24 @@ if (!is_null($events['events'])) {
 	}
 }
 
+groupBtl('xxx');
+
 function groupBtl($event)
 {
-    $userId = $event['source']['userId'];
-    $text = $event['message']['text'];
+//     $userId = $event['source']['userId'];
+//     $text = $event['message']['text'];
 
-    $checkName = stripos($text, "ชื่อ");
-    if($checkName)
-    {
-        $messages = [
-            'type' => 'text',
-            'text' => 'นี้คือข้อมูล \r\n'.json_encode($event)
-        ];
+//     $checkName = stripos($text, "ชื่อ");
+//     if($checkName)
+//     {
+//         $messages = [
+//             'type' => 'text',
+//             'text' => 'นี้คือข้อมูล \r\n'.json_encode($event)
+//         ];
 
-        return [$messages];
-    }
+//         return [$messages];
+//     }
+	echo $event;
 }
 
 function groupBtlGetUser ($userId)
