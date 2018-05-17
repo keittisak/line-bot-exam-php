@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 			
 			if($event['source']['groupId'] !== "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                $res = $this->groupBtl($events);
+                $res = groupBtl($events);
                 $post = json_encode($res);
                 
 			}
