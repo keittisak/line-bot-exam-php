@@ -15,15 +15,11 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['source']['userId'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-			
-			$text =  json_encode($events);
-			//$text = 'สวัสดีผม chat bot';
 
-			// Build message to reply back
+			$text = $event['source']['userId'];
+			$replyToken = $event['replyToken'];
+			$text =  json_encode($events);
+
 			$messages = [
 				'type' => 'text',
 				'text' => $text
@@ -38,9 +34,11 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			
-			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
+			if($event['source']['groupId'] !== "C81fe2451f7fbe94a4d47564386844e04")
 			{
-				exit();
+                $res = $this->groupBtl($events);
+                $post = json_encode($res);
+                
 			}
 
 			$ch = curl_init($url);
@@ -56,4 +54,41 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+
+function groupBtl($event)
+{
+    $userId = $event['source']['userId'];
+    $text = $event['message']['text'];
+
+    $checkName = stripos($text, "ชื่อ");
+    if($checkName)
+    {
+        $messages = [
+            'type' => 'text',
+            'text' => 'นี้คือข้อมูล /n/r '.json_encode($event)
+        ];
+
+        return $messages;
+    }
+    
+
+    
+}
+
+function groupBtlGetUser ($userId)
+{
+    $user = [
+        'U40842034a9108a52263b5037fd4a5cef' => [
+            'name' => 'เต',
+            'userId' => 'U40842034a9108a52263b5037fd4a5cef',
+            'walcome' => 'สวัสดีครับ'
+        ]
+    ];
+
+    return $user[$userId];
+}
+
+
+
+
 echo "OK";
