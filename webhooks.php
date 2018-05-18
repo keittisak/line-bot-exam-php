@@ -65,19 +65,17 @@ function groupBtl($event)
     $userId = $event['source']['userId'];
     $text = $event['message']['text'];
 
-    $checkName = stripos($text, "ชื่อ");
-
     $messages = [
         'type' => 'text',
         'text' => json_encode($event)
     ];
-
-    if($checkName)
-    {
-        $messages = [
-            'type' => 'text',
-            'text' => 'นี้คือข้อมูล \r\n'.json_encode($event)
-        ];
+	
+    $footArray = ['แดกอะไรก็แดกครับ', 'ส้นตีนไหม ?', 'กระเพาไปจบๆ', 'ข้าวผัด','สุกกี้ไง','ร้านเจ้บุมก็ได้นะ','ก๋วยเตี๋ยว', 'ลาบส้มตำ'];
+    $checkText = stripos($text, "บอทวันนี้กินอะไรดี");
+    if (!$checkText) {
+    	$text = $footArray[array_rand($footArray)];
+	$messages['text'] = $text;
+	    
     }
 
 
