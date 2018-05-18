@@ -38,8 +38,8 @@ if (!is_null($events['events'])) {
 			{
                 exit();
             }
-		$checkText = stripos($text, "บอทวันนี้กินอะไรดี");
-    		if (!$checkText) {
+		$checkText = "บอทวันนี้กินอะไรดี";
+    		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
 		}
