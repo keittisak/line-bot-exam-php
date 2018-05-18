@@ -42,8 +42,6 @@ if (!is_null($events['events'])) {
     		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
-		}else{
-			exit();
 		}
 
 
