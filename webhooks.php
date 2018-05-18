@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 
 			$text = $event['source']['userId'];
 			$replyToken = $event['replyToken'];
-			$text =  json_encode($events);
+			$text = $event['message']['text'];
 
 			$messages = [
 				'type' => 'text',
@@ -42,6 +42,8 @@ if (!is_null($events['events'])) {
     		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
+		}else{
+			exit();
 		}
 
 
