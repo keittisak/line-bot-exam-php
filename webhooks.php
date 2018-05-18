@@ -38,9 +38,11 @@ if (!is_null($events['events'])) {
 			{
                 exit();
             }
-
-            $resultMsg = groupBtl($event);
-            $data['messages'] = $resultMsg;
+		$checkText = stripos($text, "บอทวันนี้กินอะไรดี");
+    		if (!$checkText) {
+            	$resultMsg = groupBtl($event);
+            	$data['messages'] = $resultMsg;
+		}
 
 
             
@@ -71,12 +73,11 @@ function groupBtl($event)
     ];
 	
     $footArray = ['แดกอะไรก็แดกครับ', 'ส้นตีนไหม ?', 'กระเพาไปจบๆ', 'ข้าวผัด','สุกกี้ไง','ร้านเจ้บุมก็ได้นะ','ก๋วยเตี๋ยว', 'ลาบส้มตำ'];
-    $checkText = stripos($text, "บอทวันนี้กินอะไรดี");
-    if (!$checkText) {
+    
     	$text = $footArray[array_rand($footArray)];
 	$messages['text'] = $text;
 	    
-    }
+    
 
 
 
