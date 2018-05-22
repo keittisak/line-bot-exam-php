@@ -72,7 +72,7 @@ if (!is_null($events['events'])) {
         }else{
             exit();
         }
-
+exit();
         //$data['messages'][0]['text'] = $text;
 
 
