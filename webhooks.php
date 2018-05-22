@@ -38,28 +38,42 @@ if (!is_null($events['events'])) {
 			{
          
             }
-		$checkText = "บอทวันนี้กินอะไรดี";
-		$avText = "บอทเงี้ยนวะ";
-    		if ($checkText == $text) {
-            	$resultMsg = groupBtl($event);
-            	$data['messages'] = $resultMsg;
-		}elseif($avText == $text){
-		$number = rand(10,100);
-			$messages = [
-				'type' => 'text',
-				'text' => "https://www5.javmost.com/search/{$number}/"
-			];
-			$data['messages'] = [$messages];
 			
-		}elseif($text == 'บอทใครเป็นแชมป์เปี้ยนลีก'){
-			$messages = [
-				'type' => 'text',
-				'text' => "อ่าวถามโง่ๆ ก็รีลมาริดสิ"
-			];
-			$data['messages'] = [$messages];
-		}else{
-			exit();
-		}
+			
+        if(stripos($text,'บอท') !== false)
+        {
+            if(stripos($text, 'กิน') !== false)
+            {
+                if(stripos($text, 'อะไรดี') !== false)
+                {
+                    $footArray = ['แดกอะไรก็แดกครับ', 'ส้นตีนไหม ?', 'กระเพาไปจบๆ', 'ข้าวผัด','สุกกี้ไง','ร้านเจ้บุมก็ได้นะ','ก๋วยเตี๋ยว', 'ลาบส้มตำ'];
+
+                    $text = $footArray[array_rand($footArray)];
+                }
+
+            }elseif(strpbrk($text, 'เย็ด, เงี้ยน, เงี่ยน, ') !== false)
+            {
+                $number = rand(10,1000);
+                $text = "https://www5.javmost.com/search/{$number}/";
+            }
+        }elseif(strpbrk($text,'มีดื่มไหม, ดื่มไม, เบียร, เหล้า') !== false)
+        {
+            $checkDate = date("w", strtotime(date('Y-m-d')));
+            $setText1 = ['เอาไงบอกกูด้วย', 'ร้านไหนบอกมาเดียวตามไป','เจอหน้าบ้านไอ้รักเลย','เอาไงรออยู่เสี่ยนเบียรอยู่'];
+            if($checkDate !== 0 || $checkDate !== 6)
+            {
+                $setText1 = array_merge($setText1,['วันเสาร์อาทิตย์ไม่แดก']);
+            }
+            if(date('H') > 22)
+            {
+               $setText1 = array_merge($setText1,['เร็วๆเถอะเดียวมันจะดึก']);
+            }
+            $text = $setText1[array_rand($setText1)];
+        }else{
+            exit();
+        }
+
+        $data['messages']['messages'] = $text;
 
 
             
