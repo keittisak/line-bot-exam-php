@@ -51,6 +51,12 @@ if (!is_null($events['events'])) {
 			];
 			$data['messages'] = [$messages];
 			
+		}elseif($$text == 'บอทใครเป็นแชมป์เปี้ยนลีก'){
+			$messages = [
+				'type' => 'text',
+				'text' => "อ่าวถามโง่ๆ ก็รีลมาริดสิ"
+			];
+			$data['messages'] = [$messages];
 		}else{
 			exit();
 		}
