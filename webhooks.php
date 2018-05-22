@@ -39,9 +39,17 @@ if (!is_null($events['events'])) {
          
             }
 		$checkText = "บอทวันนี้กินอะไรดี";
+		$avText = "บอทเงี้ยนวะ"
     		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
+		}elseif($avText){
+		$number = rand(10,100);
+			$data['messages'] = [
+				'type' => 'text',
+				'text' => "https://www5.javmost.com/search/{$number}/"
+			];
+			
 		}else{
 			exit();
 		}
