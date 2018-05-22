@@ -43,7 +43,7 @@ if (!is_null($events['events'])) {
     		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
-		}elseif($avText){
+		}elseif($avText == $text){
 		$number = rand(10,100);
 			$data['messages'] = [
 				'type' => 'text',
