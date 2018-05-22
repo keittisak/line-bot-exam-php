@@ -45,10 +45,11 @@ if (!is_null($events['events'])) {
             	$data['messages'] = $resultMsg;
 		}elseif($avText == $text){
 		$number = rand(10,100);
-			$data['messages'] = [
+			$messages = [
 				'type' => 'text',
 				'text' => "https://www5.javmost.com/search/{$number}/"
 			];
+			$data['messages'] = [$messages];
 			
 		}else{
 			exit();
