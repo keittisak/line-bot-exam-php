@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
          
             }
 		$checkText = "บอทวันนี้กินอะไรดี";
-		$avText = "บอทเงี้ยนวะ"
+		$avText = "บอทเงี้ยนวะ";
     		if ($checkText == $text) {
             	$resultMsg = groupBtl($event);
             	$data['messages'] = $resultMsg;
