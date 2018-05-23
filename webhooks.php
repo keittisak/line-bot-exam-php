@@ -110,7 +110,7 @@ if (!is_null($events['events'])) {
             }else{
                 exit();
             }
-
+sleep(5);
             
             $post = json_encode($data);
 			$ch = curl_init($url);
