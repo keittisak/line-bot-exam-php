@@ -46,8 +46,11 @@ if (!is_null($events['events'])) {
                 4 => 'เย็ดเงี่ยนเงี้ยนชักว่าว',
                 5 => 'มีดื่มไหม',
                 6 => 'เอาไงร้านไหนดี',
-                7 => 'ดื่มเบียร กินเบียร',
-               
+                7 => 'ดื่มเบียร',
+                8 => 'เหล้า',
+                9 => 'กินเบียร',
+                10 => 'เลี้ยงเบียร',
+                11 => 'เบียรเย็นๆ',
             );
             
             foreach($corpus as $key => $text)
@@ -93,7 +96,13 @@ if (!is_null($events['events'])) {
     
             if($result[0] > 4)
             {
-                $botAnswerKey = $botAnswer[$result[0]['key']];
+                $key = $result[0]['key'];
+                if(in_array($key,[7,8,9,10,11]))
+                {
+                    $key = 7;
+                }
+    
+                $botAnswerKey = $botAnswer[$key];
                 $text = $botAnswerKey[array_rand($botAnswerKey)];
 
                 $data['messages'][0]['text'] = $text;
