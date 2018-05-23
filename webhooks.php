@@ -94,7 +94,7 @@ if (!is_null($events['events'])) {
                 ],
             ];
     
-            if($result[0] > 4)
+            if($result[0]['perc'] > 40)
             {
                 $key = $result[0]['key'];
                 if(in_array($key,[7,8,9,10,11]))
