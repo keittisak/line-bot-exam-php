@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 			
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                 exit();
+                // exit();
             }
             $query = $text;
             $corpus = array(
@@ -95,7 +95,7 @@ if (!is_null($events['events'])) {
                 ],
             ];
     
-            if($result[0]['perc'] > 40)
+            if($result[0]['perc'] > 70)
             {
                 $key = $result[0]['key'];
                 if(in_array($key,[7,8,9,10,11,12]))
