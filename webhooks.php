@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 			
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                //exit();
+                exit();
             }
             $query = $text;
             $corpus = array(
@@ -51,6 +51,7 @@ if (!is_null($events['events'])) {
                 9 => 'กินเบียร',
                 10 => 'เลี้ยงเบียร',
                 11 => 'เบียรเย็นๆ',
+                12 => 'ยังไงวันนี้'
             );
             
             foreach($corpus as $key => $text)
@@ -97,7 +98,7 @@ if (!is_null($events['events'])) {
             if($result[0]['perc'] > 40)
             {
                 $key = $result[0]['key'];
-                if(in_array($key,[7,8,9,10,11]))
+                if(in_array($key,[7,8,9,10,11,12]))
                 {
                     $key = 7;
                 }
