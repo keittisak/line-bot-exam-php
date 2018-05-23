@@ -19,60 +19,24 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			$replyToken = $event['replyToken'];
 			$text = $event['message']['text'];
-
 			$messages = [
 				'type' => 'text',
 				'text' => $text
 			];
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$messages,$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
-         
+                exit();
             }
-			
-			
-        if(stripos($text,'บอท') !== false)
-        {
-            if(stripos($text, 'กิน') !== false)
-            {
-                if(stripos($text, 'อะไรดี') !== false)
-                {
-                    $footArray = ['แดกอะไรก็แดกครับ', 'ส้นตีนไหม ?', 'กระเพาไปจบๆ', 'ข้าวผัด','สุกกี้ไง','ร้านเจ้บุมก็ได้นะ','ก๋วยเตี๋ยว', 'ลาบส้มตำ'];
 
-                    $text = $footArray[array_rand($footArray)];
-                }
-
-            }elseif(strpbrk($text, 'เย็ด, เงี้ยน, เงี่ยน, ') !== false)
-            {
-                $number = rand(10,1000);
-                $text = "https://www5.javmost.com/search/{$number}/";
-            }
-        }elseif(strpbrk($text,'มีดื่มไหม, ดื่มไม, เบียร, เหล้า') !== false)
-        {
-            $checkDate = date("w", strtotime(date('Y-m-d')));
-            $setText1 = ['เอาไงบอกกูด้วย', 'ร้านไหนบอกมาเดียวตามไป','เจอหน้าบ้านไอ้รักเลย','เอาไงรออยู่เสี่ยนเบียรอยู่'];
-            if($checkDate !== 0 || $checkDate !== 6)
-            {
-                $setText1 = array_merge($setText1,['วันเสาร์อาทิตย์ไม่แดก']);
-            }
-            if(date('H') > 22)
-            {
-               $setText1 = array_merge($setText1,['เร็วๆเถอะเดียวมันจะดึก']);
-            }
-            $text = $setText1[array_rand($setText1)];
-        }else{
-            exit();
-        }
-exit();
         //$data['messages'][0]['text'] = $text;
 
 
@@ -93,41 +57,8 @@ exit();
 }
 
 
-function groupBtl($event)
-{
-    $userId = $event['source']['userId'];
-    $text = $event['message']['text'];
-
-    $messages = [
-        'type' => 'text',
-        'text' => json_encode($event)
-    ];
-	
-    $footArray = ['แดกอะไรก็แดกครับ', 'ส้นตีนไหม ?', 'กระเพาไปจบๆ', 'ข้าวผัด','สุกกี้ไง','ร้านเจ้บุมก็ได้นะ','ก๋วยเตี๋ยว', 'ลาบส้มตำ'];
-    
-    	$text = $footArray[array_rand($footArray)];
-	$messages['text'] = $text;
-	    
-    
 
 
-
-    return [$messages];
-
-}
-
-function groupBtlGetUser ($userId)
-{
-    $user = [
-        'U40842034a9108a52263b5037fd4a5cef' => [
-            'name' => 'เต',
-            'userId' => 'U40842034a9108a52263b5037fd4a5cef',
-            'walcome' => 'สวัสดีครับ'
-        ]
-    ];
-
-    return $user[$userId];
-}
 
 
 
