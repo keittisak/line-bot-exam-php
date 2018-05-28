@@ -36,13 +36,13 @@ if (!is_null($events['events'])) {
 			
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                exit();
+                // exit();
             }
   
             $text = createAnswer($text);
             $data['messages'][0]['text'] = $text;
             
-            sleep(1);
+            sleep(2);
             
             $post = json_encode($data);
 			$ch = curl_init($url);
