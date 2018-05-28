@@ -147,18 +147,18 @@ function createAnswer ($text)
 
         ];
 
-                $perc = 67;
+               $perc = 67;
                 $key = $results[0]['key'];
                 if($key == 6)
                 {
                     $perc = 52;
                 }
+                if($key == 7)
+                {
+                    $key = 5;
+                }
                 if($results[0]['perc'] > $perc)
                 {
-                    if($key == 7)
-                    {
-                        $key = 5;
-                    }
                     $botAnswerKey = $botAnswer[$key];
                     $text = $botAnswerKey[array_rand($botAnswerKey)];
                     return $text;
