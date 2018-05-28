@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
             $text = createAnswer($text);
             $data['messages'][0]['text'] = $text;
             
-            sleep(2);
+            //sleep(2);
             
             $post = json_encode($data);
 			$ch = curl_init($url);
