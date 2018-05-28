@@ -161,7 +161,7 @@ function createAnswer ($text)
                 {
                     $botAnswerKey = $botAnswer[$key];
                     $text = $botAnswerKey[array_rand($botAnswerKey)];
-		    return json_encode($results);
+		    return json_encode('xx');
                     //return $text;
                 }else{
                     exit();
