@@ -157,11 +157,11 @@ function createAnswer ($text)
                 {
                     $key = 5;
                 }
-                if($results[0]['perc'] > $perc)
+                if($results[0]['perc'] > 10)
                 {
                     $botAnswerKey = $botAnswer[$key];
                     $text = $botAnswerKey[array_rand($botAnswerKey)];
-		    return json_encode('xx');
+		    return json_encode($results);
                     //return $text;
                 }else{
                     exit();
