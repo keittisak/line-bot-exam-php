@@ -62,7 +62,7 @@ if (!is_null($events['events'])) {
 
 function createAnswer ($text)
 {
-        $query = $request->text;
+        $query = $text;
 
         $corpus = [
             '1' => [
