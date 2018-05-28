@@ -151,7 +151,7 @@ function createAnswer ($text)
                 $key = $results[0]['key'];
                 if($key == 6)
                 {
-                    $perc = 52;
+                    $perc = 47;
                 }
                 if($key == 7)
                 {
