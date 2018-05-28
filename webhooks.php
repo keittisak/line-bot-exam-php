@@ -81,7 +81,7 @@ function createAnswer ($text)
                 'ใครไปบาง'
             ],
             '6' => [
-                'มึงบอท','บอทควย','บอทว่าไง','สัสบอท','บอทเมิง
+                'มึงบอท','บอทควย','บอทว่าไง','สัสบอท','บอทเมิง'
             ],
             '7' => [
                 'วันไหน'
@@ -146,15 +146,18 @@ function createAnswer ($text)
 
 
         ];
-
-                if($results[0]['perc'] > 52)
+                $perc = 67;
+                $key = $results[0]['key'];
+                if($key == 6)
                 {
-                    $key = $results[0]['key'];
-                    
-                    if($key == 7)
-                    {
-                        $key = 5;
-                    }
+                    $perc = 52;
+                }
+                if($key == 7)
+                {
+                    $key = 5;
+                }
+                if($results[0]['perc'] > $perc)
+                {
                     $botAnswerKey = $botAnswer[$key];
                     $text = $botAnswerKey[array_rand($botAnswerKey)];
                     return $text;
