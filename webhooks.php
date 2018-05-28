@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
 			
 			if($event['source']['groupId'] == "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                // exit();
+                 exit();
             }
   
             $text = createAnswer($text);
@@ -161,7 +161,8 @@ function createAnswer ($text)
                 {
                     $botAnswerKey = $botAnswer[$key];
                     $text = $botAnswerKey[array_rand($botAnswerKey)];
-                    return $text;
+		    return json_encode($results);
+//                     return $text;
                 }else{
                     exit();
                 }
