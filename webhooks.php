@@ -34,14 +34,18 @@ if (!is_null($events['events'])) {
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			
+			
 			if($event['source']['groupId'] != "C81fe2451f7fbe94a4d47564386844e04")
 			{
-                 //exit();
+                 		//exit();
 				$data['messages'][0]['text'] = $content;
-            }
+            		}else{
+				$text = createAnswer($text);
+            			$data['messages'][0]['text'] = $text;
+			}
+				
   
-            $text = createAnswer($text);
-            $data['messages'][0]['text'] = $text;
+            
             
             //sleep(2);
             
