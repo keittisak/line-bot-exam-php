@@ -9,6 +9,35 @@ $access_token = 'gqgEkKz8kKUIJ9XwgmBhK3ZbPnzK2W4H6XfBmLMXZ8UJjzmCy9NSzldWU0XFDYK
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+
+
+
+$url = 'https://api.line.me/v2/bot/message/push';
+$data = [
+    "to" => "U40842034a9108a52263b5037fd4a5cef",
+    'messages' => [
+        'type' => 'text',
+        'text' => $content
+    ],
+];
+$post = json_encode($data);
+$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+
+echo $result . "\r\n";
+
+exit();
+
+
+
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
