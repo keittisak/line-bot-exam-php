@@ -18,7 +18,7 @@ $data = [
     'messages' => [
         [
             'type' => 'text',
-            'text' => 'test'
+            'text' => 'test,'.$content
         ]
     ],
 ];
