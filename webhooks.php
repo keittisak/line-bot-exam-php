@@ -9,7 +9,16 @@ $access_token = 'gqgEkKz8kKUIJ9XwgmBhK3ZbPnzK2W4H6XfBmLMXZ8UJjzmCy9NSzldWU0XFDYK
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$hearder = json_encode(getallheaders());
+// $hearder = json_encode(getallheaders());
+
+
+
+
+
+
+
+
+
 
 
 $url = 'https://api.line.me/v2/bot/message/push';
