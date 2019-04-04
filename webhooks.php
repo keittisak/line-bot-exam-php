@@ -9,27 +9,26 @@ $access_token = 'gqgEkKz8kKUIJ9XwgmBhK3ZbPnzK2W4H6XfBmLMXZ8UJjzmCy9NSzldWU0XFDYK
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-$hearder = getallheaders();
-// $hearder = '{"Content-Length":"300","Total-Route-Time":"0","X-Request-Start":"1554351368491","Connect-Time":"1","Via":"1.1 vegur","X-Forwarded-Port":"443","X-Forwarded-Proto":"https","X-Forwarded-For":"147.92.149.168","X-Request-Id":"aebf6924-7909-4cec-b272-df73e905bd1b","User-Agent":"LineBotWebhook\/1.0","Accept":"*\/*","Content-Type":"application\/json;charset=UTF-8","X-Line-Signature":"qBdwNIvU8I38BobTWdEa1MDjdS25bH5IUqPq2WJLxgA=","Connection":"close","Host":"limitless-island-38005.herokuapp.com"}';
+$headers = getallheaders();
 
-// $hearder['host'] = "bots.dialogflow.com";
-// $hearder['content-type'] = 'application/json;charset=UTF-8';
-// $url = 'https://bots.dialogflow.com/line/bot-shop-ca827/webhook';
+$headers['host'] = "bots.dialogflow.com";
+$headers['content-type'] = 'application/json;charset=UTF-8';
+$url = 'https://bots.dialogflow.com/line/00a963e0-b8e1-435f-affe-92a6cb6be622/webhook';
 
-// $post = json_encode($events);
+$post = json_encode($events);
 
-// $ch = curl_init($url);
-// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// $result = curl_exec($ch);
-// curl_close($ch);
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
 
-// echo $result . "\r\n";
+echo $result . "\r\n";
 
-// exit();
+exit();
 
 //-----------------------------//
 
