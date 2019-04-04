@@ -9,10 +9,7 @@ $access_token = 'gqgEkKz8kKUIJ9XwgmBhK3ZbPnzK2W4H6XfBmLMXZ8UJjzmCy9NSzldWU0XFDYK
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
-// $headers = getallheaders();
-$headers = $_SERVER['HTTP_X_REQUESTED_WITH'];
-print_r($headers);
-eixt();
+$headers = getallheaders();
 
 $headers['Host'] = "bots.dialogflow.com";
 $headers['Content-type'] = 'application/json;charset=UTF-8';
