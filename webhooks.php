@@ -41,7 +41,7 @@ $data = [
     'messages' => [
         [
             'type' => 'text',
-            'text' => 'test,'.$hearder
+            'text' => 'test,'.json_encode($hearder)
         ]
     ],
 ];
