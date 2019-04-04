@@ -41,7 +41,7 @@ $data = [
         [
             'type' => 'text',
             // 'text' => 'test, '.json_encode($headers).', '.$content
-            'text' => $result
+            'text' => json_encode($result)
         ]
     ],
 ];
