@@ -28,7 +28,7 @@ curl_close($ch);
 
 echo $result . "\r\n";
 
-exit();
+
 
 
 
@@ -40,7 +40,8 @@ $data = [
     'messages' => [
         [
             'type' => 'text',
-            'text' => 'test, '.json_encode($headers).', '.$content
+            // 'text' => 'test, '.json_encode($headers).', '.$content
+            'text' => $result
         ]
     ],
 ];
