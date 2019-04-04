@@ -11,6 +11,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 // $headers = getallheaders();
 $headers = $_SERVER['HTTP_X_REQUESTED_WITH'];
+print_r($headers);
 eixt();
 
 $headers['Host'] = "bots.dialogflow.com";
