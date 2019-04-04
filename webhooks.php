@@ -12,7 +12,7 @@ $events = json_decode($content, true);
 $headers = getallheaders();
 
 $headers['Host'] = "bots.dialogflow.com";
-$headers['content-type'] = 'application/json;charset=UTF-8';
+$headers['Content-type'] = 'application/json;charset=UTF-8';
 // $url = 'https://bots.dialogflow.com/line/00a963e0-b8e1-435f-affe-92a6cb6be622/webhook';
 
 // $post = json_encode($events);
