@@ -10,6 +10,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 $hearder = getallheaders();
+// $hearder = '{"Content-Length":"300","Total-Route-Time":"0","X-Request-Start":"1554351368491","Connect-Time":"1","Via":"1.1 vegur","X-Forwarded-Port":"443","X-Forwarded-Proto":"https","X-Forwarded-For":"147.92.149.168","X-Request-Id":"aebf6924-7909-4cec-b272-df73e905bd1b","User-Agent":"LineBotWebhook\/1.0","Accept":"*\/*","Content-Type":"application\/json;charset=UTF-8","X-Line-Signature":"qBdwNIvU8I38BobTWdEa1MDjdS25bH5IUqPq2WJLxgA=","Connection":"close","Host":"limitless-island-38005.herokuapp.com"}';
 
 // $hearder['host'] = "bots.dialogflow.com";
 // $hearder['content-type'] = 'application/json;charset=UTF-8';
@@ -41,7 +42,7 @@ $data = [
     'messages' => [
         [
             'type' => 'text',
-            'text' => 'test,'.json_encode($hearder)
+            'text' => 'test, '.json_encode($hearder).', '.$content
         ]
     ],
 ];
