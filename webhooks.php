@@ -11,24 +11,24 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $hearder = getallheaders();
 
-$hearder['host'] = "bots.dialogflow.com";
-$hearder['content-type'] = 'application/json;charset=UTF-8';
-$url = 'https://bots.dialogflow.com/line/bot-shop-ca827/webhook';
+// $hearder['host'] = "bots.dialogflow.com";
+// $hearder['content-type'] = 'application/json;charset=UTF-8';
+// $url = 'https://bots.dialogflow.com/line/bot-shop-ca827/webhook';
 
-$post = json_encode($events);
+// $post = json_encode($events);
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// $result = curl_exec($ch);
+// curl_close($ch);
 
-echo $result . "\r\n";
+// echo $result . "\r\n";
 
-exit();
+// exit();
 
 //-----------------------------//
 
