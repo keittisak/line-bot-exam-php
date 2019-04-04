@@ -13,6 +13,7 @@ $headers = getallheaders();
 
 $headers['Host'] = "bots.dialogflow.com";
 $headers['Content-type'] = 'application/json;charset=UTF-8';
+$headers['Accept-Encoding'] = 'gzip';
 $url = 'https://bots.dialogflow.com/line/00a963e0-b8e1-435f-affe-92a6cb6be622/webhook';
 
 $post = json_encode($events);
@@ -20,7 +21,7 @@ $post = json_encode($events);
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post));
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
