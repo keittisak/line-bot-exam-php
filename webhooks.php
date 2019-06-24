@@ -7,60 +7,60 @@ $access_token = 'gqgEkKz8kKUIJ9XwgmBhK3ZbPnzK2W4H6XfBmLMXZ8UJjzmCy9NSzldWU0XFDYK
 
 // Get POST body content
 $content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-$headers = getallheaders();
+// // Parse JSON
+// $events = json_decode($content, true);
+// $headers = getallheaders();
 
-$headers['Host'] = "bots.dialogflow.com";
-$headers['Content-type'] = 'application/json;charset=UTF-8';
-$headers['Accept-Encoding'] = 'gzip';
-$url = 'https://bots.dialogflow.com/line/00a963e0-b8e1-435f-affe-92a6cb6be622/webhook';
+// $headers['Host'] = "bots.dialogflow.com";
+// $headers['Content-type'] = 'application/json;charset=UTF-8';
+// $headers['Accept-Encoding'] = 'gzip';
+// $url = 'https://bots.dialogflow.com/line/00a963e0-b8e1-435f-affe-92a6cb6be622/webhook';
 
-// $post = json_encode($events);
+// // $post = json_encode($events);
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// $result = curl_exec($ch);
+// curl_close($ch);
 
-echo $result . "\r\n";
-
-
+// echo $result . "\r\n";
 
 
 
 
 
-$url = 'https://api.line.me/v2/bot/message/push';
-$data = [
-    "to" => "U40842034a9108a52263b5037fd4a5cef",
-    'messages' => [
-        [
-            'type' => 'text',
-            // 'text' => 'test, '.json_encode($headers).', '.$content
-            'text' => $result
-        ]
-    ],
-];
-$post = json_encode($data);
-$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
 
-echo $result . "\r\n";
+// $url = 'https://api.line.me/v2/bot/message/push';
+// $data = [
+//     "to" => "U40842034a9108a52263b5037fd4a5cef",
+//     'messages' => [
+//         [
+//             'type' => 'text',
+//             // 'text' => 'test, '.json_encode($headers).', '.$content
+//             'text' => $result
+//         ]
+//     ],
+// ];
+// $post = json_encode($data);
+// $headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-exit();
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// $result = curl_exec($ch);
+// curl_close($ch);
+
+// echo $result . "\r\n";
+
+// exit();
 
 
 
