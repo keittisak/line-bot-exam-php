@@ -1,42 +1,4 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    // return view('welcome');
-    return redirect('/backoffice/dashboard');
-});
-Route::get('/artisan/storage', function() {
-    $command = 'storage:link';
-    $result = \Artisan::call($command);
-    return \Artisan::output();
-});
-
-// Auth::routes();
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Authentication Routes...
-Route::get('/login', 'Auth\LoginController@showLoginForm')->name('auth.login');
-Route::post('/login', 'Auth\LoginController@login');
-Route::post('/logout', 'Auth\LoginController@logout')->name('auth.logout');
-// Route::prefix('backoffice')->middleware(['auth','accessLog'])->group(function(){
-Route::prefix('backoffice')->middleware(['auth', 'accessLog'])->group(function(){
-    Route::get('/', function () {
-        return redirect('/backoffice/dashboard');
-    });
-    Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
-    Route::get('/orders', 'OrderController@index')->name('orders.index');
-    Route::get('/orders/data', 'OrderController@data')->name<?php // callback.php
-
     require "vendor/autoload.php";
     require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
     
